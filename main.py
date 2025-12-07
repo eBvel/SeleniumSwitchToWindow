@@ -7,9 +7,12 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 def switch_between_windows(windows):
-    for i in windows:
-        driver.switch_to.window(driver.window_handles[i])
-        time.sleep(2)
+    if len(windows) < 1:
+        print("Windows list is empty.")
+    else:
+        for i in windows:
+            driver.switch_to.window(driver.window_handles[i])
+            time.sleep(2)
 
 
 options = webdriver.ChromeOptions()
